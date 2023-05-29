@@ -10,5 +10,8 @@ RUN sed -i 's/listen       80;/listen       8080;/g' /etc/nginx/conf.d/default.c
 # Expose the port Nginx listens on
 EXPOSE 8080
 
+# Start Nginx with the modified configuration
+CMD envsubst '8080' < /etc/nginx/nginx.template.conf > /etc/nginx/nginx.conf && nginx -g 'daemon off;
+
 # Start Nginx when the container launches
 CMD ["nginx", "-g", "daemon off;"]
