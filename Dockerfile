@@ -13,5 +13,6 @@ EXPOSE 8080
 # Start Nginx with the modified configuration
 CMD envsubst '8080' < /etc/nginx/nginx.template.conf > /etc/nginx/nginx.conf && nginx -g 'daemon off;
 
+Optional 1 
 # Start Nginx when the container launches
 CMD ["nginx", "-g", "daemon off;"]
